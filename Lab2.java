@@ -45,6 +45,32 @@ public class Lab2 {
                 }
                 System.out.println();
             }
+
+            int sumMin = 0;
+            int sumMax = 0;
+
+            //to count sum of the biggest numbers in odd col
+            for (int j = 0; j < matrixC[0].length; j += 2) {
+                byte max = matrixC[0][j];
+                for (int i = 0; i < matrixC.length; i++) {
+                    if (matrixC[i][j] > max) {
+                        max = matrixC[i][j];
+                    }
+                }
+                sumMax += max;
+            }
+
+            //to count sum of the smallest numbers in even col
+            for (int j = 1; j < matrixC[0].length; j += 2) {
+                byte min = matrixC[0][j];
+                for (int i = 0; i < matrixC.length; i++) {
+                    if (matrixC[i][j] < min) {
+                        min = matrixC[i][j];
+                    }
+                }
+                sumMin += min;
+            }
+            System.out.println("SUM-MIN = " + sumMin + "  SUM-MAX = " + sumMax);
         }
     }
 }
