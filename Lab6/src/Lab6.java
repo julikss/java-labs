@@ -1,16 +1,23 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
-    0414 mod 13 = 11
-    11) Завантажити фургон певного обсягу вантажем на певну суму з різних сортів кави,
-    що можуть перебувати у різних фізичних станах (зерно, мелена, розчинна в банках
-    і пакетиках). Ураховувати обсяг кави разом з упаковкою. Провести сортування товарів
-    на основі співвідношення ціни й ваги. Знайти товар у фургоні, що відповідає заданому
-    діапазону якості кави.
+/**
+ * Клас для загрузки фургону кавою та її сортування
+ *
+ * @author Легенька Юлія
+ * @version 1.0 6 Jan 2023
  */
 
 public class Lab6 {
+    /**
+     * Головний метод програми. Створює масив об'єктів класів {@link Arabica},
+     * {@link Robusta}, {@link Liberica}, що унаслідують клас {@link Coffee}.
+     * Створює об'єкт класу фургону {@link Van} і завантажує фургон кавою відповідно
+     * до його місткості. Створює {@link ArrayList<Coffee>} та додає всю поставку кави
+     * до нього, сортує каву за повною ціною, використовуючи об'єкт класу {@link CoffeeComparator}
+     * і виводить відсортований список позицій. Сортує каву за заданим діапазоном її якості та виводить
+     * в консоль.
+     */
     public static void main(String[] args) {
         Coffee[] coffeeSupply = {
                 new Arabica("jar", "beans", 100, 200, 7),
@@ -32,9 +39,11 @@ public class Lab6 {
             }
         }
 
+        // Завантаження фургону
         vanForDelivery.setSupply(list.toArray(coffeeSupply));
         System.out.println("Uploaded weight of the van = " + weight + "kg \n");
 
+        // Сортування кави за повною ціною
         CoffeeComparator coffeeComparator = new CoffeeComparator();
         Arrays.sort(coffeeSupply, coffeeComparator);
 

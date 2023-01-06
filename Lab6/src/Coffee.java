@@ -1,13 +1,52 @@
+/**
+ * Батьківський клас для задання полів кави
+ *
+ * @author Легенька Юлія
+ * @version 1.0 6 Jan 2023
+ */
 public abstract class Coffee {
+    /**
+     * Поле - сорт кави
+     */
     private String sort;
+    /**
+     * Поле - вид кави
+     */
     private String state;
+    /**
+     * Поле - упаковка
+     */
     private String packing;
+    /**
+     * Поле - вага
+     */
     private int weight;
+    /**
+     * Поле - ціна
+     */
     private int price;
+    /**
+     * Поле - якість
+     */
     private int quality;
+    /**
+     * Поле - вміст кофеїну в 100г (в г)
+     */
     private double caffeine;
+    /**
+     * Поле - регіон зростання
+     */
     private String regionOfGrowth;
 
+    /**
+     * Конструктор класу
+     *
+     * @param state     вид кави (в зернах, мелена, розчинна)
+     * @param packing   упаковка (банка, в пакетиках)
+     * @param weight    вага (у кг)
+     * @param price     ціна (за кг)
+     * @param quality   якість (від 1 до 10)
+     */
     public Coffee (String state, String packing, int weight, int price, int quality) {
         setState(state);
         setPacking(packing);
@@ -16,10 +55,16 @@ public abstract class Coffee {
         setQuality(quality);
     }
 
+    /**
+     * Метод для отримання повної ціни
+     */
     public int getTotalPrice() {
         return this.weight * this.price;
     }
 
+    /**
+     * Геттери і сеттери для приватних полів класу
+     */
     public void setSort(String sort) {
         this.sort = sort;
     }
@@ -83,6 +128,9 @@ public abstract class Coffee {
         this.regionOfGrowth = regionOfGrowth;
     }
 
+    /**
+     * Метод для відображення в консолі інформації з полями класу
+     */
     public String showInfo() {
         return String.format("Sort of coffee: %s \n " +
                         "Region of growth: %s \n " +
